@@ -14,33 +14,24 @@ const Navigation = () => {
 
   return (
     <Fragment>
-
-
-      <NavigationCotainer >
+      <NavigationCotainer>
         <LogoContainer to='/'>
           <CrownLogo className='logo' />
         </LogoContainer>
-        <NavLinks >
-          <NavLink>
-            SHOP
-          </NavLink>
+        <NavLinks>
+          <NavLink to='/shop'>SHOP</NavLink>
 
           {currentUser ? (
-            <NavLink className='nav-link' onClick={signOutUser}>
-              {' '}
-              SIGN OUT{' '}
+            <NavLink as='span' onClick={signOutUser}>
+              SIGN OUT
             </NavLink>
           ) : (
-            <NavLink as='span' to='/auth'>
-              SIGN IN
-            </NavLink>
+            <NavLink to='/auth'>SIGN IN</NavLink>
           )}
-          <CartIcon></CartIcon>
-
+          <CartIcon />
         </NavLinks>
-        {isCartOpen && <CartDropdown/>}
-        
-          </NavigationCotainer>
+        {isCartOpen && <CartDropdown />}
+      </NavigationCotainer>
       <Outlet />
     </Fragment>
   );
